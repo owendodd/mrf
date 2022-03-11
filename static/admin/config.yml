@@ -4,90 +4,29 @@ backend:
 media_folder: "static/images" # Folder where user uploaded files should go
 public_folder: "images"
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "settings"
+    label: "Settings"
     files:
-      - file: "content/_index.md"
-        label: "Home"
-        name: "home"
+      - file: "content/settings/_index.md"
+        label: "Info"
+        name: "info"
         fields:
-          - { label: "Page Title", name: "pagetitle", widget: "string" }
-          - {
-              label: "Page URL",
-              name: "pageurl",
-              widget: "string",
-              required: false,
-            }
-          - { label: "Nav Item", name: "navitem", widget: "boolean" }
-          - { label: "Subhead", name: "subhead", widget: "string" }
-          - { label: "Bio", name: "bio", widget: "markdown" }
-          - label: "Background"
-            name: "background"
-            widget: "object"
-            fields:
-              - {
-                  label: "Background Placeholder",
-                  name: "bgplaceholder",
-                  widget: "image",
-                }
-          - label: "Bio Links"
-            name: "biolinks"
-            widget: "list"
-            summary: "{{fields.linktitle}}"
-            fields:
-              - { label: "Link Title", name: "linktitle", widget: "string" }
-              - { label: "Link URL", name: "linkurl", widget: "string" }
-      - file: "content/photo/_index.md"
-        label: "Photo"
-        name: "photo"
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Address Line 1", name: "address1", widget: "string" }
+          - { label: "Address Line 2", name: "address2", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+  - name: "content"
+    label: "Content"
+    files:
+      - file: "content/photoarchive/_index.md"
+        label: "Photo Archive"
+        name: "photoarchive"
         fields:
-          - { label: "Page Title", name: "pagetitle", widget: "string" }
-          - { label: "Page URL", name: "pageurl", widget: "string" }
-          - { label: "Nav Item", name: "navitem", widget: "boolean" }
-          - { label: "Subhead", name: "subhead", widget: "string" }
-          - label: "Photo Projects"
-            name: "photoprojects"
+          - label: "Photos"
+            name: "photos"
             widget: "list"
-            summary: "{{fields.projecttitle}}"
+            summary: "{{fields.date}}"
             fields:
-              - {
-                  label: "Project Title",
-                  name: "projecttitle",
-                  widget: "string",
-                }
-              - label: "Images"
-                name: "images"
-                widget: "list"
-                summary: "{{fields.caption}}"
-                fields:
-                  - { label: "Caption", name: "caption", widget: "string" }
-                  - { label: "Image File", name: "imagefile", widget: "image" }
-      - file: "content/productdesign/_index.md"
-        label: "Product Design"
-        name: "productdesign"
-        fields:
-          - { label: "Page Title", name: "pagetitle", widget: "string" }
-          - { label: "Page URL", name: "pageurl", widget: "string" }
-          - { label: "Nav Item", name: "navitem", widget: "boolean" }
-          - { label: "Subhead", name: "subhead", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown", required: false }
-          - label: "Projects"
-            name: "projects"
-            widget: "list"
-            summary: "{{fields.client}}"
-            fields:
-              - { label: "Client", name: "client", widget: "string" }
-              - { label: "Description", name: "desc", widget: "string" }
-              - label: "Images"
-                name: "images"
-                widget: "list"
-                summary: "{{fields.imagefile}}"
-                fields:
-                  - { label: "Image File", name: "imagefile", widget: "image" }
-          - label: "Bio Links"
-            name: "biolinks"
-            widget: "list"
-            summary: "{{fields.linktitle}}"
-            fields:
-              - { label: "Link Title", name: "linktitle", widget: "string" }
-              - { label: "Link URL", name: "linkurl", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Image File", name: "imagefile", widget: "image" }
