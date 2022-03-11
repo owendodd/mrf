@@ -3,6 +3,8 @@ backend:
   branch: main
 media_folder: "static/images" # Folder where user uploaded files should go
 public_folder: "images"
+editor:
+     preview: false
 collections:
   - name: "settings"
     label: "Settings"
