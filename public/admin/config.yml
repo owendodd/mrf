@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "static/images" # Folder where user uploaded files should go
+public_folder: "images"
+collections:
+  - name: "settings"
+    label: "Settings"
+    files:
+      - file: "info/_index.md"
+        label: "Info"
+        name: "info"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Address Line 1", name: "address1", widget: "string" }
+          - { label: "Address Line 2", name: "address2", widget: "string" }
+          - { label: "Phone", name: "name", widget: "string" }
+          - { label: "Email", name: "navitem", widget: "boolean" }
+  - name: "content"
+    label: "Content"
+    files:
+      - file: "photoarchive/_index.md"
+        label: "Photo Archive"
+        name: "photoarchive"
+        widget: "list"
+        fields:
+          - { label: "Date", name: "date", widget: "string" }
+          - label: "Image"
+            name: "image"
+            widget: "list"
+            summary: "{{fields.imagefile}}"
+            fields:
+              - { label: "Image File", name: "imagefile", widget: "image" }
